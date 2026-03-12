@@ -1,0 +1,41 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.code {
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--color-red), var(--color-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.message {
+  font-size: 1.4rem;
+  color: var(--color-grey);
+}
+
+.homeBtn {
+  padding: 12px 32px;
+  background: linear-gradient(90deg, var(--color-red), var(--color-orange));
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.homeBtn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}

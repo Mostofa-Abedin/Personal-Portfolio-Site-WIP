@@ -1,0 +1,142 @@
+.section {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 5rem 8%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Left column ── */
+.textCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.textCol h1 {
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+}
+
+.fname {
+  color: var(--color-red);
+}
+
+.lname {
+  color: var(--color-orange);
+}
+
+.subtitle {
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  font-weight: 400;
+  color: #555;
+}
+
+.highlights {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 600;
+}
+
+.h1 { color: var(--color-red); }
+.h2 { color: var(--color-orange); }
+.h3 { color: var(--color-dark-blue); }
+
+.bio {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 2;
+  color: #333;
+  max-width: 600px;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.hireMeBtn,
+.expBtn {
+  border-radius: 6px;
+  color: white;
+  padding: 14px 38px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hireMeBtn {
+  background-color: var(--color-red);
+}
+
+.hireMeBtn:hover {
+  background-color: #c94e4a;
+}
+
+.expBtn {
+  background-color: var(--color-orange);
+}
+
+.expBtn:hover {
+  background-color: #cc8500;
+}
+
+/* ── Right column ── */
+.imageCol {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meImg {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  border: 5px solid var(--color-red);
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 3rem 6%;
+    align-items: flex-start;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+    gap: 2.5rem;
+  }
+
+  .imageCol {
+    width: 100%;
+  }
+
+  .meImg {
+    width: 260px;
+    height: 260px;
+  }
+
+  .bio {
+    max-width: 100%;
+  }
+}
