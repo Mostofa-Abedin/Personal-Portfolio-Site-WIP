@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background-color: white;
+  background-color: var(--bg-page);
 }
 
 .heading {
@@ -16,7 +16,7 @@
 
 .heading h1 {
   font-size: clamp(1.7rem, 3vw, 2.6rem);
-  color: #272727;
+  color: var(--text-primary);
 }
 
 .container {
@@ -31,15 +31,15 @@
 
 .box {
   width: 380px;
-  background-color: #ffffff;
-  border: 1px solid #ececec;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
   margin: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px var(--shadow-card);
   transition: box-shadow 0.3s;
 }
 
 .box:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 16px var(--shadow);
 }
 
 .imgWrap {
@@ -62,14 +62,14 @@
 }
 
 .meta {
-  color: #f33c3c;
+  color: var(--color-red);
   font-size: 0.95rem;
 }
 
 .title {
   font-size: 1.3rem;
   font-weight: 500;
-  color: #272727;
+  color: var(--text-primary);
   text-decoration: none;
   line-height: 1.4;
 }
@@ -80,7 +80,7 @@
 }
 
 .summary {
-  color: #9b9b9b;
+  color: var(--text-muted);
   font-size: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -92,7 +92,7 @@
 }
 
 .readMore {
-  color: #0f0f0f;
+  color: var(--text-primary);
   font-size: 1rem;
   text-decoration: none;
   font-weight: 500;

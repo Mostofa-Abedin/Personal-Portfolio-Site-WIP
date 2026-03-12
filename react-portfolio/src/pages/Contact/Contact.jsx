@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import styles from './Contact.module.css'
 
 function Contact() {
@@ -25,7 +27,11 @@ function Contact() {
   }
 
   return (
-    <>
+    <PageTransition>
+      <Helmet>
+        <title>Contact | Mostofa Abedin</title>
+        <meta name="description" content="Get in touch with Mostofa Abedin. Available for freelance work, collaborations, and full-time opportunities." />
+      </Helmet>
       <Navbar />
       <main className={styles.section}>
         <div className={styles.inner}>
@@ -105,7 +111,7 @@ function Contact() {
         </div>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   )
 }
 

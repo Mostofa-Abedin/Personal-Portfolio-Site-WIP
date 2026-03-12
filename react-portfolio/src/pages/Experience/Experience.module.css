@@ -1,6 +1,7 @@
 .section {
   flex: 1;
   padding: 2.5rem 5%;
+  background-color: var(--bg-page);
 }
 
 .heading {
@@ -16,10 +17,10 @@
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background-color: var(--bg-card);
+  box-shadow: 0 2px 6px var(--shadow);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -36,7 +37,7 @@
 .expSummary p,
 .proExp {
   font-size: 1.05rem;
-  color: black;
+  color: var(--text-primary);
   line-height: 1.8;
 }
 
@@ -47,8 +48,8 @@
 }
 
 .skillGroup {
-  background-color: white;
-  border: 1px solid #e0e0e0;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 1rem 1.25rem;
 }
@@ -64,20 +65,14 @@
 
 .skillGroup p {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-muted);
   line-height: 1.6;
-}
-
-@media screen and (max-width: 640px) {
-  .skillsGrid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .job {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-light);
 }
 
 .job:first-child {
@@ -89,18 +84,18 @@
 .jobTitle {
   font-size: 1.15rem;
   font-weight: 700;
-  color: black;
+  color: var(--text-primary);
 }
 
 .company {
   font-size: 1rem;
-  color: #444;
+  color: var(--text-muted);
   margin-top: 2px;
 }
 
 .duration {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-subtle);
   margin-top: 2px;
   margin-bottom: 0.5rem;
 }
@@ -108,7 +103,7 @@
 .jobDesc {
   font-size: 0.95rem;
   font-style: italic;
-  color: #555;
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -116,7 +111,7 @@
   padding-left: 1.25rem;
   line-height: 1.9;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .responsibilities li {
@@ -149,11 +144,10 @@
 }
 
 @media screen and (max-width: 640px) {
-  .section {
-    padding: 1.5rem 4%;
-  }
+  .skillsGrid { grid-template-columns: 1fr; }
+}
 
-  .expContent {
-    padding: 1.25rem;
-  }
+@media screen and (max-width: 640px) {
+  .section { padding: 1.5rem 4%; }
+  .expContent { padding: 1.25rem; }
 }

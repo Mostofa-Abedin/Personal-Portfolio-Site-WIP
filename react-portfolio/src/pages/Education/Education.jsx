@@ -1,5 +1,7 @@
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import caLogo from '../../assets/CA_logo.jpg'
 import usydLogo from '../../assets/usyd_logo_2.jpg'
 import fsaeImg from '../../assets/fsae_image.jpg'
@@ -8,7 +10,11 @@ import styles from './Education.module.css'
 
 function Education() {
   return (
-    <>
+    <PageTransition>
+      <Helmet>
+        <title>Education | Mostofa Abedin</title>
+        <meta name="description" content="Academic background including Coder Academy Diploma in Web Development and a Bachelor of Mechanical Engineering from the University of Sydney." />
+      </Helmet>
       <Navbar />
       <main className={styles.section}>
         <div className={styles.heading}>My Education Background</div>
@@ -105,7 +111,7 @@ function Education() {
         </div>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   )
 }
 

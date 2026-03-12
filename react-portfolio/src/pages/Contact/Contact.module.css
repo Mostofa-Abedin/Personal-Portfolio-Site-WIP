@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 4rem 6%;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf0 100%);
+  background: var(--bg-page);
 }
 
 .inner {
@@ -13,10 +13,11 @@
   gap: 0;
   width: 100%;
   max-width: 1000px;
-  background: white;
+  background: var(--bg-page);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px var(--shadow-card);
   overflow: hidden;
+  border: 1px solid var(--border-light);
 }
 
 /* ── Left panel ── */
@@ -73,9 +74,7 @@
   transition: color 0.3s;
 }
 
-.contactIcons a:hover {
-  color: white;
-}
+.contactIcons a:hover { color: white; }
 
 .iconWrap {
   width: 32px;
@@ -96,6 +95,7 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 3rem;
+  background: var(--bg-page);
 }
 
 .formTitle {
@@ -119,7 +119,7 @@
 .fieldGroup label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #444;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -127,7 +127,7 @@
 .optional {
   font-weight: 400;
   font-size: 0.8rem;
-  color: #888;
+  color: var(--text-subtle);
   text-transform: none;
   letter-spacing: 0;
 }
@@ -147,12 +147,12 @@
 .fieldGroup textarea {
   width: 100%;
   padding: 11px 14px;
-  border: 1.5px solid #ddd;
+  border: 1.5px solid var(--border-light);
   border-radius: 8px;
   font-size: 1rem;
-  color: #111;
+  color: var(--text-primary);
   font-family: var(--font-body);
-  background: #fafafa;
+  background: var(--bg-input);
   transition: border-color 0.2s, box-shadow 0.2s;
   resize: none;
 }
@@ -163,7 +163,7 @@
   border-color: var(--color-orange);
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 166, 0, 0.15);
-  background: white;
+  background: var(--bg-page);
 }
 
 .submitBtn {
@@ -192,12 +192,8 @@
     align-items: flex-start;
   }
 
-  .inner {
-    flex-direction: column;
-  }
+  .inner { flex-direction: column; }
 
   .leftPara,
-  .rightForm {
-    padding: 2rem;
-  }
+  .rightForm { padding: 2rem; }
 }

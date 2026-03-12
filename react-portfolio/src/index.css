@@ -1,10 +1,39 @@
 :root {
+  /* Brand colours */
   --color-red: #ff6361;
   --color-orange: #ffa600;
   --color-dark-blue: #003F5C;
   --color-grey: #2E424B;
   --color-hover-blue: #0056b3;
   --font-body: "Roboto", sans-serif;
+
+  /* Light mode semantic tokens */
+  --bg-page: #ffffff;
+  --bg-card: #f9f9f9;
+  --bg-input: #fafafa;
+  --text-primary: #111111;
+  --text-secondary: #333333;
+  --text-muted: #555555;
+  --text-subtle: #666666;
+  --border-color: #cccccc;
+  --border-light: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --shadow-card: rgba(0, 0, 0, 0.10);
+}
+
+/* Dark mode overrides */
+html.dark {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-subtle: #94a3b8;
+  --border-color: #334155;
+  --border-light: #334155;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-card: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -16,6 +45,9 @@
 body {
   font-family: var(--font-body);
   font-weight: 400;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Sticky footer layout — every page fills the viewport */

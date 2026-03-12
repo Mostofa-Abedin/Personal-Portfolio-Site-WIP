@@ -7,6 +7,7 @@
   gap: 1.2rem;
   padding: 4rem 2rem;
   text-align: center;
+  background-color: var(--bg-page);
 }
 
 .code {
@@ -21,7 +22,7 @@
 
 .message {
   font-size: 1.4rem;
-  color: var(--color-grey);
+  color: var(--text-muted);
 }
 
 .homeBtn {
