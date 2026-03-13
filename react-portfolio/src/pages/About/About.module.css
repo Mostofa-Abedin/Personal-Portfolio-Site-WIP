@@ -1,6 +1,6 @@
 .section {
   flex: 1;
-  background-color: white;
+  background-color: var(--bg-page);
   display: flex;
   align-items: center;
   padding: 5rem 8%;
@@ -16,7 +16,6 @@
   margin: 0 auto;
 }
 
-/* ── Left column ── */
 .textCol {
   flex: 1;
   display: flex;
@@ -28,22 +27,17 @@
 .textCol h1 {
   font-size: clamp(2.6rem, 4.5vw, 4.2rem);
   font-weight: 700;
-  color: #111;
+  color: var(--text-primary);
   line-height: 1.2;
 }
 
-.fname {
-  color: var(--color-red);
-}
-
-.lname {
-  color: var(--color-orange);
-}
+.fname { color: var(--color-red); }
+.lname { color: var(--color-orange); }
 
 .subtitle {
   font-size: clamp(1.3rem, 2vw, 1.9rem);
   font-weight: 400;
-  color: #555;
+  color: var(--text-muted);
 }
 
 .highlights {
@@ -53,12 +47,12 @@
 
 .h1 { color: var(--color-red); }
 .h2 { color: var(--color-orange); }
-.h3 { color: var(--color-dark-blue); }
+.h3 { color: var(--text-heading); }
 
 .bio {
   font-size: clamp(1.05rem, 1.4vw, 1.25rem);
   line-height: 2;
-  color: #333;
+  color: var(--text-secondary);
   max-width: 600px;
 }
 
@@ -82,23 +76,12 @@
   transition: background-color 0.3s;
 }
 
-.hireMeBtn {
-  background-color: var(--color-red);
-}
+.hireMeBtn { background-color: var(--color-red); }
+.hireMeBtn:hover { background-color: #c94e4a; }
 
-.hireMeBtn:hover {
-  background-color: #c94e4a;
-}
+.expBtn { background-color: var(--color-orange); }
+.expBtn:hover { background-color: #cc8500; }
 
-.expBtn {
-  background-color: var(--color-orange);
-}
-
-.expBtn:hover {
-  background-color: #cc8500;
-}
-
-/* ── Right column ── */
 .imageCol {
   flex-shrink: 0;
   display: flex;
@@ -111,11 +94,10 @@
   height: 420px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 28px var(--shadow);
   border: 5px solid var(--color-red);
 }
 
-/* ── Mobile (≤ 768px) ── */
 @media screen and (max-width: 768px) {
   .section {
     padding: 3rem 6%;
@@ -127,16 +109,12 @@
     gap: 2.5rem;
   }
 
-  .imageCol {
-    width: 100%;
-  }
+  .imageCol { width: 100%; }
 
   .meImg {
     width: 260px;
     height: 260px;
   }
 
-  .bio {
-    max-width: 100%;
-  }
+  .bio { max-width: 100%; }
 }

@@ -1,11 +1,17 @@
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import { posts } from '../../data/blogsData'
 import styles from './Blogs.module.css'
 
 function Blogs() {
   return (
-    <>
+    <PageTransition>
+      <Helmet>
+        <title>Blogs | Mostofa Abedin</title>
+        <meta name="description" content="Articles on project management, agile, communication, risk, and professional development by Mostofa Abedin." />
+      </Helmet>
       <Navbar />
       <main className={styles.section}>
         <div className={styles.heading}>
@@ -32,7 +38,7 @@ function Blogs() {
         </div>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   )
 }
 

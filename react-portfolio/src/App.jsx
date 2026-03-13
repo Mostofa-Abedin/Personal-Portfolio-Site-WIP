@@ -1,4 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import { HelmetProvider } from 'react-helmet-async'
+import { DarkModeProvider } from './context/DarkModeContext'
 import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
 import Experience from './pages/Experience/Experience'
@@ -7,10 +10,11 @@ import Blogs from './pages/Blogs/Blogs'
 import Contact from './pages/Contact/Contact'
 import NotFound from './pages/NotFound/NotFound'
 
-function App() {
+function AnimatedRoutes() {
+  const location = useLocation()
   return (
-    <BrowserRouter>
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/experience" element={<Experience />} />
@@ -19,7 +23,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </AnimatePresence>
+  )
+}
+
+function App() {
+  return (
+    <HelmetProvider>
+      <DarkModeProvider>
+        <BrowserRouter>
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </DarkModeProvider>
+    </HelmetProvider>
   )
 }
 

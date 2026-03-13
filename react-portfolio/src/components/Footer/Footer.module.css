@@ -1,5 +1,6 @@
 .footer {
-  background-color: var(--color-dark-blue);
+  background-color: var(--bg-footer);
+  transition: background-color 0.3s;
   padding: 28px 0;
   display: flex;
   justify-content: center;
@@ -13,7 +14,7 @@
   align-items: center;
   width: 88%;
   max-width: 1400px;
-  color: white;
+  color: #f5efe0;
 }
 
 .footerLeft {
@@ -42,12 +43,12 @@
 }
 
 .footerRight a {
-  color: #ccc;
+  color: #d6cfc4;
   font-size: 1.8rem;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footerRight a:hover {
-  color: #fff;
+  color: #f5efe0;
 }

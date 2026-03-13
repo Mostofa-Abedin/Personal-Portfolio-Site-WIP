@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import profileImg from '../../assets/My_image.jpg'
 import styles from './About.module.css'
 
 function About() {
   return (
-    <>
+    <PageTransition>
+      <Helmet>
+        <title>About | Mostofa Abedin</title>
+        <meta name="description" content="Learn about Mostofa Abedin — PMI-ACP certified professional with a background in engineering, software development, operations, and automation." />
+      </Helmet>
       <Navbar />
       <main className={styles.section}>
         <div className={styles.content}>
@@ -40,7 +46,7 @@ function About() {
         </div>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   )
 }
 

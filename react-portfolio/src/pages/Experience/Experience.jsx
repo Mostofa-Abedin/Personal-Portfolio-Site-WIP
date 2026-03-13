@@ -1,13 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-regular-svg-icons'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import { jobs, skills } from '../../data/experienceData'
 import styles from './Experience.module.css'
 
 function Experience() {
   return (
-    <>
+    <PageTransition>
+      <Helmet>
+        <title>Experience | Mostofa Abedin</title>
+        <meta name="description" content="Professional experience including MagnetLab, PARts DB Australia, Lenovo, and more. PMI-ACP certified operations and project management professional." />
+      </Helmet>
       <Navbar />
       <main className={styles.section}>
         <div className={styles.heading}>My Professional Experience</div>
@@ -62,7 +68,7 @@ function Experience() {
         </div>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   )
 }
 
