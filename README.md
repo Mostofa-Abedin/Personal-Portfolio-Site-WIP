@@ -1,37 +1,46 @@
 # Portfolio Website | [Visit Here](https://mostofaportfolio.netlify.app/)
-**Repository:** [GitHub Repo](https://github.com/Mostofa-Abedin/-ShekhMostofaAbedin-_T1A2)
+**Repository:** [GitHub Repo](https://github.com/Mostofa-Abedin/Personal-Portfolio-Site-WIP)
 
 ---
 
 ## Description
-This is a work-in-progress personal portfolio website to showcase my skills, projects, and experience as a web developer.
+Personal portfolio website for Mostofa Abedin — Projects & Operations Lead and Web Developer based in Sydney, NSW.
 
 ---
 
 ## Features
-- Interactive UI showcasing professional experience and projects.
-- Fully responsive design optimized for all devices.
-- Deployed using Netlify for fast and reliable access.
+- Fully responsive design optimised for all devices.
+- Dark mode with persistent preference via localStorage.
+- Page transitions powered by Framer Motion.
+- SEO meta tags and Open Graph support on every page.
+- Deployed via Netlify with SPA route fallback.
 
 ---
 
-## Technical Details
-- **Frontend:** Built with HTML, CSS, and JavaScript.
-- **Deployment:** Hosted on Netlify for continuous integration and smooth updates.
+## Tech Stack
+- **Framework:** React 19 (Vite)
+- **Routing:** React Router v7
+- **Styling:** CSS Modules + CSS custom properties
+- **Animations:** Framer Motion
+- **Icons:** FontAwesome (React)
+- **SEO:** React Helmet Async
+- **Deployment:** Netlify
 
 ---
 
-## Future Improvements
-- Add dynamic content with a backend (planned).
-- Incorporate animations and interactivity for better user experience.
-- Expand project portfolio with more examples.
+## Local Development
+```bash
+npm install
+npm run dev
+```
+
+## Production Build
+```bash
+npm run build
+npm run preview
+```
 
 ---
 
-## Work in Progress (WIP)
-This portfolio is under active development. Regular updates are being made to enhance features, content, and design.
-
----
-
-## Contributions and Feedback
-Feedback is welcome to help improve this project! Please feel free to raise issues or suggest enhancements.
+## Work in Progress
+This portfolio is under active development. Regular updates are being made to content, design, and features.
