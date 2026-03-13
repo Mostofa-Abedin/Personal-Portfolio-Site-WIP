@@ -1,1 +1,0 @@
-cd "/mnt/d/Coder_Academy/{ShekhMostofaAbedin}_T1A2"
