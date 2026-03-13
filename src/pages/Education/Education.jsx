@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { motion } from 'framer-motion'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
@@ -7,6 +8,21 @@ import usydLogo from '../../assets/usyd_logo_2.jpg'
 import fsaeImg from '../../assets/fsae_image.jpg'
 import carbonFibreImg from '../../assets/carbon_fibre_img.jpg'
 import styles from './Education.module.css'
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.48, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+})
+
+const certs = [
+  { title: 'PMI Agile Certified Practitioner (PMI-ACP)®', body: 'Project Management Institute · Issued Nov 2025 · Expires Nov 2028' },
+  { title: 'Certified Associate in Project Management (CAPM)®', body: 'Project Management Institute · Issued Oct 2025 · Expires Oct 2028' },
+  { title: 'Professional Year in Engineering (GradIEAust)', body: 'Engineers Australia · 2021' },
+  { title: 'Startup Fundamentals', body: 'Incubate Program, University of Sydney · 2021' },
+  { title: 'Google Cloud Generative AI Leader', body: 'In progress' },
+]
 
 function Education() {
   return (
@@ -17,98 +33,84 @@ function Education() {
       </Helmet>
       <Navbar />
       <main className={styles.section}>
-        <div className={styles.heading}>My Education Background</div>
-        <div className={styles.edContent}>
+        <motion.div className={styles.headerBlock} {...fadeUp()}>
+          <h1 className={styles.heading}>My Education</h1>
+          <p className={styles.subheading}>
+            Engineering foundations · Web development · Continuous learning
+          </p>
+        </motion.div>
 
-          <div className={styles.edSummary}>
-            <h3>Summary:</h3>
-            <p>
-              I completed a Diploma of Information Technology (Web Development) at Coder Academy
-              and hold a Bachelor of Engineering in Mechanical Engineering from the University of
-              Sydney. In 2021, I completed a Professional Year in Engineering. I am also a
-              PMI-ACP and CAPM certified project management professional.
-            </p>
-          </div>
-
-          <div className={styles.edQual}>
-            <h3>Qualifications:</h3>
-
-            <div className={styles.qualSec}>
-              <img src={caLogo} alt="Coder Academy Logo" className={styles.instLogo} />
-              <p>
-                <strong>Coder Academy</strong><br />
-                Diploma of Information Technology (Web Development)<br />
-                Apr 2024 – Feb 2025
-              </p>
+        {/* Qualifications */}
+        <motion.section className={styles.block} {...fadeUp(0.08)}>
+          <h2 className={styles.sectionTitle}>Qualifications</h2>
+          <div className={styles.qualGrid}>
+            <div className={styles.qualCard}>
+              <img src={caLogo} alt="Coder Academy" className={styles.instLogo} />
+              <div>
+                <h3>Coder Academy</h3>
+                <p className={styles.degree}>Diploma of Information Technology (Web Development)</p>
+                <p className={styles.years}>Apr 2024 – Feb 2025</p>
+              </div>
             </div>
-
-            <div className={styles.qualSec}>
+            <div className={styles.qualCard}>
               <a href="https://www.sydney.edu.au/" target="_blank" rel="noreferrer">
-                <img src={usydLogo} alt="The University of Sydney Logo" className={styles.instLogo} />
+                <img src={usydLogo} alt="University of Sydney" className={styles.instLogo} />
               </a>
-              <p>
-                <strong>University of Sydney</strong><br />
-                Bachelor of Engineering: Mechanical<br />
-                Class of 2020<br /><br />
-                <strong>Final Year Thesis</strong><br />
-                Numerical and experimental study of externally loaded bolted joints — awarded Distinction<br /><br />
-                Discrepancies in member stiffness and deformation characteristics for externally
-                loaded bolted joints were studied. An experimental method involving physical
-                models, an analytical method using established formulae in literature were
-                contrasted with numerical methods using Finite Element Analysis (FEA) in ANSYS and SolidWorks.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.edProjects}>
-            <h3>Degree related projects:</h3>
-            <div className={styles.project}>
-              <h4>Society of Automotive Engineers (SAE) team member</h4>
-              <img src={fsaeImg} alt="FSAE Car" className={styles.edProImg} />
-              <ul className={styles.list}>
-                <li>Design and testing of FSAE specification race car.</li>
-                <li>Managed funding and awareness raising events.</li>
-                <li>Attended design competition between Australian Universities.</li>
-              </ul>
-            </div>
-            <div className={styles.project}>
-              <h4>3D printing using Carbon Fibre</h4>
-              <img src={carbonFibreImg} alt="3D printer Carbon Fibre Sample" className={styles.edProImg} />
-              <ul className={styles.list}>
-                <li>Extensive research conducted on 3D printing and thermoplastic compounds.</li>
-                <li>Molecular level analysis of reinforced and pre-impregnated carbon fibre.</li>
-                <li>Attempted to increase manufacturing quality.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className={styles.edCert}>
-            <h3>Certifications:</h3>
-            <div className={styles.certList}>
-              <div className={styles.certItem}>
-                <strong>PMI Agile Certified Practitioner (PMI-ACP)®</strong><br />
-                Project Management Institute · Issued Nov 2025 · Expires Nov 2028
-              </div>
-              <div className={styles.certItem}>
-                <strong>Certified Associate in Project Management (CAPM)®</strong><br />
-                Project Management Institute · Issued Oct 2025 · Expires Oct 2028
-              </div>
-              <div className={styles.certItem}>
-                <strong>Professional Year in Engineering (GradIEAust)</strong><br />
-                Engineers Australia · 2021
-              </div>
-              <div className={styles.certItem}>
-                <strong>Startup Fundamentals</strong><br />
-                Incubate Program, University of Sydney · 2021
-              </div>
-              <div className={styles.certItem}>
-                <strong>Google Cloud Generative AI Leader</strong><br />
-                In progress
+              <div>
+                <h3>University of Sydney</h3>
+                <p className={styles.degree}>Bachelor of Engineering: Mechanical</p>
+                <p className={styles.years}>Class of 2020</p>
+                <p className={styles.thesis}>
+                  <strong>Final Year Thesis (Distinction)</strong><br />
+                  Numerical and experimental study of externally loaded bolted joints — comparing
+                  physical models, analytical formulae, and FEA in ANSYS and SolidWorks.
+                </p>
               </div>
             </div>
           </div>
+        </motion.section>
 
-        </div>
+        {/* Certifications */}
+        <motion.section className={styles.block} {...fadeUp(0.1)}>
+          <h2 className={styles.sectionTitle}>Certifications</h2>
+          <div className={styles.certGrid}>
+            {certs.map(c => (
+              <div key={c.title} className={styles.certCard}>
+                <h4>{c.title}</h4>
+                <p>{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Projects */}
+        <motion.section className={styles.block} {...fadeUp(0.12)}>
+          <h2 className={styles.sectionTitle}>Degree Projects</h2>
+          <div className={styles.projectGrid}>
+            <div className={styles.projectCard}>
+              <img src={fsaeImg} alt="FSAE race car" className={styles.projectImg} />
+              <div className={styles.projectText}>
+                <h4>Formula SAE Team</h4>
+                <ul>
+                  <li>Design and testing of FSAE specification race car.</li>
+                  <li>Managed funding and awareness-raising events.</li>
+                  <li>Attended design competition between Australian Universities.</li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.projectCard}>
+              <img src={carbonFibreImg} alt="Carbon fibre 3D print" className={styles.projectImg} />
+              <div className={styles.projectText}>
+                <h4>3D Printing with Carbon Fibre</h4>
+                <ul>
+                  <li>Molecular-level analysis of reinforced and pre-impregnated carbon fibre.</li>
+                  <li>Extensive research on thermoplastic compounds and manufacturing quality.</li>
+                  <li>Attempted to increase 3D printing structural performance.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </motion.section>
       </main>
       <Footer />
     </PageTransition>

@@ -1,30 +1,58 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { Helmet } from 'react-helmet-async'
+import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPaperPlane, faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
 import styles from './Contact.module.css'
 
+const EMAILJS_SERVICE  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_KEY      = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 function Contact() {
+  const formRef = useRef(null)
   const [formData, setFormData] = useState({ Name: '', Email: '', Phone: '', Message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const { Name, Email, Phone, Message } = formData
-    const subject = encodeURIComponent(`Portfolio enquiry from ${Name}`)
-    const body = encodeURIComponent(`Name: ${Name}\nEmail: ${Email}\nPhone: ${Phone || 'N/A'}\n\nMessage:\n${Message}`)
-    window.location.href = `mailto:shekh.mostofa.abedin@gmail.com?subject=${subject}&body=${body}`
-    setSubmitted(true)
-    setFormData({ Name: '', Email: '', Phone: '', Message: '' })
+
+    // If EmailJS is configured, use it; otherwise fall back to mailto
+    if (EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_KEY) {
+      setStatus('sending')
+      try {
+        await emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, formRef.current, EMAILJS_KEY)
+        setStatus('success')
+        setFormData({ Name: '', Email: '', Phone: '', Message: '' })
+      } catch {
+        setStatus('error')
+      }
+    } else {
+      // Fallback: open email client
+      const { Name, Email, Phone, Message } = formData
+      const subject = encodeURIComponent(`Portfolio enquiry from ${Name}`)
+      const body = encodeURIComponent(`Name: ${Name}\nEmail: ${Email}\nPhone: ${Phone || 'N/A'}\n\nMessage:\n${Message}`)
+      window.location.href = `mailto:shekh.mostofa.abedin@gmail.com?subject=${subject}&body=${body}`
+      setStatus('success')
+      setFormData({ Name: '', Email: '', Phone: '', Message: '' })
+    }
   }
+
+  const socials = [
+    { icon: faEnvelope, label: 'Email', href: 'mailto:shekh.mostofa.abedin@gmail.com', text: 'shekh.mostofa.abedin@gmail.com' },
+    { icon: faLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mostofaabedin', text: 'in/mostofaabedin' },
+    { icon: faGithub, label: 'GitHub', href: 'https://github.com/Mostofa-Abedin', text: 'github.com/Mostofa-Abedin' },
+    { icon: faFacebook, label: 'Facebook', href: 'https://www.facebook.com/mostafa.abedin', text: 'Shekh Mostofa Abedin' },
+    { icon: faTwitter, label: 'X / Twitter', href: 'https://x.com/Abedin32505783', text: '@Abedin32505783' },
+    { icon: faInstagram, label: 'Instagram', href: 'https://www.instagram.com/trigger_abedin/', text: '@trigger_abedin' },
+  ]
 
   return (
     <PageTransition>
@@ -35,79 +63,76 @@ function Contact() {
       <Navbar />
       <main className={styles.section}>
         <div className={styles.inner}>
-
-          <div className={styles.leftPara}>
+          {/* Left */}
+          <motion.div
+            className={styles.left}
+            initial={{ opacity: 0, x: -28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             <h1 className={styles.heading}>Let&apos;s Talk</h1>
             <p className={styles.subtext}>
               Found my portfolio interesting? Feel free to reach out —
               this could be the beginning of something great!
             </p>
-
             <div className={styles.divider} />
-
             <h3 className={styles.findMe}>Find me on:</h3>
             <div className={styles.contactIcons}>
-              <a href="mailto:shekh.mostofa.abedin@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faEnvelope} /></span>
-                shekh.mostofa.abedin@gmail.com
-              </a>
-              <a href="https://www.linkedin.com/in/mostofaabedin" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faLinkedin} /></span>
-                in/mostofaabedin
-              </a>
-              <a href="https://github.com/Mostofa-Abedin" target="_blank" rel="noreferrer" aria-label="GitHub">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faGithub} /></span>
-                github.com/Mostofa-Abedin
-              </a>
-              <a href="https://www.facebook.com/mostafa.abedin" target="_blank" rel="noreferrer" aria-label="Facebook">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faFacebook} /></span>
-                Shekh Mostofa Abedin
-              </a>
-              <a href="https://x.com/Abedin32505783" target="_blank" rel="noreferrer" aria-label="Twitter / X">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faTwitter} /></span>
-                @Abedin32505783
-              </a>
-              <a href="https://www.instagram.com/trigger_abedin/" target="_blank" rel="noreferrer" aria-label="Instagram">
-                <span className={styles.iconWrap}><FontAwesomeIcon icon={faInstagram} /></span>
-                @trigger_abedin
-              </a>
+              {socials.map(s => (
+                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className={styles.socialLink}>
+                  <span className={styles.iconWrap}>
+                    <FontAwesomeIcon icon={s.icon} />
+                  </span>
+                  {s.text}
+                </a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.rightForm}>
+          {/* Right: form */}
+          <motion.div
+            className={styles.right}
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             <h2 className={styles.formTitle}>Send a Message</h2>
 
-            {submitted && (
+            {status === 'success' && (
               <div className={styles.successMsg}>
-                Your email client has been opened — thanks for reaching out! I&apos;ll get back to you soon.
+                <FontAwesomeIcon icon={faCircleCheck} />
+                Message sent! I&apos;ll get back to you soon.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className={styles.errorMsg}>
+                <FontAwesomeIcon icon={faCircleXmark} />
+                Something went wrong. Please try again or email me directly.
               </div>
             )}
 
-            <form className={styles.formStyle} onSubmit={handleSubmit}>
+            <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.fieldGroup}>
                 <label htmlFor="Name">Name</label>
                 <input type="text" id="Name" name="Name" placeholder="Your name" value={formData.Name} onChange={handleChange} required />
               </div>
-
               <div className={styles.fieldGroup}>
                 <label htmlFor="Email">Email</label>
                 <input type="email" id="Email" name="Email" placeholder="your@email.com" value={formData.Email} onChange={handleChange} required />
               </div>
-
               <div className={styles.fieldGroup}>
-                <label htmlFor="Phone">Phone Number <span className={styles.optional}>(optional)</span></label>
+                <label htmlFor="Phone">Phone <span className={styles.optional}>(optional)</span></label>
                 <input type="text" id="Phone" name="Phone" placeholder="Optional" value={formData.Phone} onChange={handleChange} />
               </div>
-
               <div className={styles.fieldGroup}>
                 <label htmlFor="Message">Message</label>
                 <textarea id="Message" name="Message" rows="5" placeholder="What's on your mind?" value={formData.Message} onChange={handleChange} required />
               </div>
-
-              <button type="submit" className={styles.submitBtn}>Send Message</button>
+              <button type="submit" className={styles.submitBtn} disabled={status === 'sending'}>
+                {status === 'sending' ? 'Sending…' : <><FontAwesomeIcon icon={faPaperPlane} /> Send Message</>}
+              </button>
             </form>
-          </div>
-
+          </motion.div>
         </div>
       </main>
       <Footer />

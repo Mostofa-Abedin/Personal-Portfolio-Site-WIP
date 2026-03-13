@@ -1,0 +1,38 @@
+export const projects = [
+  {
+    id: 'portfolio',
+    title: 'Personal Portfolio',
+    description: 'Designed and built from scratch — React 19, Vite 7, Framer Motion animations, CSS Modules, dark mode, full SEO setup, and Netlify deployment.',
+    tags: ['React', 'Vite', 'Framer Motion', 'CSS Modules', 'Netlify'],
+    github: 'https://github.com/Mostofa-Abedin/Personal-Portfolio-Site-WIP',
+    live: null,
+    featured: true,
+  },
+  {
+    id: 'crm-automation',
+    title: 'CRM & Client Automation Platform',
+    description: 'Configured a GoHighLevel CRM for a small business studio — custom pipelines, Zapier + n8n automation workflows, intake forms, AI voice/chat agent integration, and lead attribution tracking.',
+    tags: ['GoHighLevel', 'Zapier', 'n8n', 'Stammer AI', 'APIs'],
+    github: null,
+    live: null,
+    featured: true,
+  },
+  {
+    id: 'parts-db',
+    title: 'Automotive Parts DB Gap Analysis',
+    description: 'Built PostgreSQL queries to compare a 1M-SKU automotive catalogue against the Australian vehicle market, generating gap reports for 40+ suppliers and reducing fitment discrepancies.',
+    tags: ['PostgreSQL', 'SQL', 'Data Analysis', 'Jira'],
+    github: null,
+    live: null,
+    featured: true,
+  },
+  {
+    id: 'jira-migration',
+    title: 'Freshdesk → Jira Service Management Migration',
+    description: 'Led the full migration of customer support operations from Freshdesk to Jira Service Management — designed shared-ticket workflows, trained an 8-person team, and cut rework cycles from 4–5 passes to 2.',
+    tags: ['Jira Service Management', 'Confluence', 'Change Management', 'Agile'],
+    github: null,
+    live: null,
+    featured: false,
+  },
+]

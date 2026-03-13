@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -6,6 +7,10 @@ import styles from './Footer.module.css'
 function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.cta}>
+        <p className={styles.ctaText}>Interested in working together?</p>
+        <Link to="/contact" className={styles.ctaBtn}>Let&apos;s Talk</Link>
+      </div>
       <div className={styles.footerContent}>
         <div className={styles.footerLeft}>
           <FontAwesomeIcon icon={faCopyright} style={{ color: 'var(--color-red)' }} />
