@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
+import TiltCard from '../../components/TiltCard/TiltCard'
 import { posts } from '../../data/blogsData'
 import styles from './Blogs.module.css'
 
@@ -52,30 +53,32 @@ function Blogs() {
           animate="show"
         >
           {posts.map(post => (
-            <motion.article key={post.id} className={styles.card} variants={item}>
-              <a href={post.link} target="_blank" rel="noreferrer" className={styles.imgLink}>
-                <div className={styles.imgWrap}>
-                  <img src={post.img} alt={post.title} />
-                </div>
-              </a>
-              <div className={styles.body}>
-                <div className={styles.meta}>
-                  <span
-                    className={styles.category}
-                    style={{ background: categoryColors[post.category] ?? 'var(--color-grey)' }}
-                  >
-                    {post.category}
-                  </span>
-                  <span className={styles.date}>{post.date}</span>
-                </div>
-                <a href={post.link} target="_blank" rel="noreferrer" className={styles.title}>
-                  {post.title}
+            <motion.article key={post.id} variants={item}>
+              <TiltCard className={styles.card} maxTilt={7}>
+                <a href={post.link} target="_blank" rel="noreferrer" className={styles.imgLink}>
+                  <div className={styles.imgWrap}>
+                    <img src={post.img} alt={post.title} />
+                  </div>
                 </a>
-                <p className={styles.summary}>{post.summary}</p>
-                <a href={post.link} className={styles.readMore} target="_blank" rel="noreferrer">
-                  Read More →
-                </a>
-              </div>
+                <div className={styles.body}>
+                  <div className={styles.meta}>
+                    <span
+                      className={styles.category}
+                      style={{ background: categoryColors[post.category] ?? 'var(--color-grey)' }}
+                    >
+                      {post.category}
+                    </span>
+                    <span className={styles.date}>{post.date}</span>
+                  </div>
+                  <a href={post.link} target="_blank" rel="noreferrer" className={styles.title}>
+                    {post.title}
+                  </a>
+                  <p className={styles.summary}>{post.summary}</p>
+                  <a href={post.link} className={styles.readMore} target="_blank" rel="noreferrer">
+                    Read More →
+                  </a>
+                </div>
+              </TiltCard>
             </motion.article>
           ))}
         </motion.div>

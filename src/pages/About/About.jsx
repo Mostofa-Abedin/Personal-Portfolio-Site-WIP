@@ -5,14 +5,16 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
 import AnimatedCounter from '../../components/AnimatedCounter/AnimatedCounter'
+import MagneticButton from '../../components/MagneticButton/MagneticButton'
+import Marquee from '../../components/Marquee/Marquee'
 import profileImg from '../../assets/My_image.jpg'
 import styles from './About.module.css'
 
 const stats = [
   { value: 5, suffix: '+', label: 'Years Experience' },
-  { value: 3, suffix: '', label: 'PMI Certifications' },
+  { value: 2, suffix: '', label: 'PMI Certifications' },
   { value: 5, suffix: '', label: 'Companies' },
-  { value: 100, suffix: '+', label: 'Projects Delivered' },
+  { value: 20, suffix: '+', label: 'Automations Built' },
 ]
 
 const fadeUp = {
@@ -66,8 +68,12 @@ function About() {
             </motion.p>
 
             <motion.div className={styles.buttons} variants={fadeUp} custom={4}>
-              <Link to="/contact" className={styles.hireMeBtn}>Hire Me</Link>
-              <Link to="/experience" className={styles.expBtn}>Experience</Link>
+              <MagneticButton>
+                <Link to="/contact" className={styles.hireMeBtn}>Hire Me</Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link to="/experience" className={styles.expBtn}>Experience</Link>
+              </MagneticButton>
             </motion.div>
           </motion.div>
 
@@ -82,6 +88,9 @@ function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Skills marquee */}
+        <Marquee />
 
         {/* Stats strip */}
         <motion.div

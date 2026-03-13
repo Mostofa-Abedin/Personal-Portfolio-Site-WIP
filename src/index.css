@@ -77,6 +77,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Custom cursor — hides native pointer on hover-capable devices */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
 /* Sticky footer layout */
 #root {
   display: flex;

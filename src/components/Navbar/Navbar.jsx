@@ -39,6 +39,15 @@ function Navbar() {
 
         <div className={styles.rightControls}>
           <button
+            className={styles.cmdBtn}
+            onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
+            aria-label="Open command palette"
+            title="Open command palette (Ctrl+K)"
+          >
+            <kbd>⌘K</kbd>
+          </button>
+
+          <button
             className={styles.darkToggle}
             onClick={toggle}
             aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}

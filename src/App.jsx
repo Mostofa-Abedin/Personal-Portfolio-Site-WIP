@@ -3,6 +3,9 @@ import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import { DarkModeProvider } from './context/DarkModeContext'
 import ScrollProgress from './components/ScrollProgress/ScrollProgress'
+import CustomCursor from './components/CustomCursor/CustomCursor'
+import SplashScreen from './components/SplashScreen/SplashScreen'
+import CommandPalette from './components/CommandPalette/CommandPalette'
 import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
 import Experience from './pages/Experience/Experience'
@@ -38,6 +41,9 @@ function App() {
     <HelmetProvider>
       <DarkModeProvider>
         <BrowserRouter>
+          <SplashScreen />
+          <CustomCursor />
+          <CommandPalette />
           <AnimatedRoutes />
         </BrowserRouter>
       </DarkModeProvider>

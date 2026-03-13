@@ -6,6 +6,7 @@ import { faFile, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
+import RevealText from '../../components/RevealText/RevealText'
 import { jobs, skills } from '../../data/experienceData'
 import styles from './Experience.module.css'
 
@@ -37,15 +38,14 @@ function Experience() {
       </Helmet>
       <Navbar />
       <main className={styles.section}>
-        <motion.div
-          className={styles.headerBlock}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-        >
-          <h1 className={styles.heading}>My Professional Experience</h1>
-          <p className={styles.subheading}>A track record across engineering, operations, and tech.</p>
-        </motion.div>
+        <div className={styles.headerBlock}>
+          <RevealText delay={0.05}>
+            <h1 className={styles.heading}>My Professional Experience</h1>
+          </RevealText>
+          <RevealText delay={0.18}>
+            <p className={styles.subheading}>A track record across engineering, operations, and tech.</p>
+          </RevealText>
+        </div>
 
         {/* Timeline */}
         <div className={styles.timelineWrap}>

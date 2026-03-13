@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import PageTransition from '../../components/PageTransition/PageTransition'
 import TypeWriter from '../../components/TypeWriter/TypeWriter'
 import ParticleCanvas from '../../components/ParticleCanvas/ParticleCanvas'
+import MagneticButton from '../../components/MagneticButton/MagneticButton'
 import styles from './Landing.module.css'
 
 function Landing() {
@@ -52,12 +53,16 @@ function Landing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.85 }}
           >
-            <Link to="/about" className={styles.primaryBtn}>
-              View Portfolio
-            </Link>
-            <Link to="/contact" className={styles.secondaryBtn}>
-              Get in Touch
-            </Link>
+            <MagneticButton>
+              <Link to="/about" className={styles.primaryBtn}>
+                View Portfolio
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/contact" className={styles.secondaryBtn}>
+                Get in Touch
+              </Link>
+            </MagneticButton>
           </motion.div>
         </div>
 

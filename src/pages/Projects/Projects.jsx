@@ -6,6 +6,8 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
+import RevealText from '../../components/RevealText/RevealText'
+import TiltCard from '../../components/TiltCard/TiltCard'
 import { projects } from '../../data/projectsData'
 import styles from './Projects.module.css'
 
@@ -28,17 +30,16 @@ function Projects() {
       </Helmet>
       <Navbar />
       <main className={styles.section}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className={styles.headerBlock}
-        >
-          <h1 className={styles.heading}>Selected Work</h1>
-          <p className={styles.subheading}>
-            A cross-section of what I&apos;ve built, automated, and delivered.
-          </p>
-        </motion.div>
+        <div className={styles.headerBlock}>
+          <RevealText delay={0.05}>
+            <h1 className={styles.heading}>Selected Work</h1>
+          </RevealText>
+          <RevealText delay={0.18}>
+            <p className={styles.subheading}>
+              A cross-section of what I&apos;ve built, automated, and delivered.
+            </p>
+          </RevealText>
+        </div>
 
         <motion.div
           className={styles.grid}
@@ -47,30 +48,32 @@ function Projects() {
           animate="show"
         >
           {projects.map(project => (
-            <motion.div key={project.id} className={styles.card} variants={item}>
-              {project.featured && <span className={styles.featuredBadge}>Featured</span>}
-              <h2 className={styles.cardTitle}>{project.title}</h2>
-              <p className={styles.cardDesc}>{project.description}</p>
-              <div className={styles.tags}>
-                {project.tags.map(tag => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
-              </div>
-              <div className={styles.links}>
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-                    <FontAwesomeIcon icon={faGithub} /> GitHub
-                  </a>
-                )}
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Live
-                  </a>
-                )}
-                {!project.github && !project.live && (
-                  <span className={styles.privateNote}>Client / Internal Project</span>
-                )}
-              </div>
+            <motion.div key={project.id} variants={item}>
+              <TiltCard className={styles.card}>
+                {project.featured && <span className={styles.featuredBadge}>Featured</span>}
+                <h2 className={styles.cardTitle}>{project.title}</h2>
+                <p className={styles.cardDesc}>{project.description}</p>
+                <div className={styles.tags}>
+                  {project.tags.map(tag => (
+                    <span key={tag} className={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+                <div className={styles.links}>
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
+                      <FontAwesomeIcon icon={faGithub} /> GitHub
+                    </a>
+                  )}
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noreferrer" className={styles.linkBtn}>
+                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Live
+                    </a>
+                  )}
+                  {!project.github && !project.live && (
+                    <span className={styles.privateNote}>Client / Internal Project</span>
+                  )}
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>
