@@ -1,0 +1,24 @@
+.tiltWrap {
+  position: relative;
+  transform-style: preserve-3d;
+  /* clip the glare to the card's shape */
+  overflow: hidden;
+  /* border-radius comes from the consumer's className */
+  will-change: transform;
+}
+
+.glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+  transition: background 0.25s ease;
+}
+
+/* On touch devices skip the effect entirely */
+@media (hover: none) {
+  .tiltWrap {
+    transform: none !important;
+  }
+}
