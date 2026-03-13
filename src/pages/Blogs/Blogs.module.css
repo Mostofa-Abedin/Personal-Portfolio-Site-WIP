@@ -75,7 +75,7 @@
 }
 
 .title:hover {
-  color: #c74242;
+  color: var(--color-red);
   transition: all ease 0.3s;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .readMore:hover {
-  color: #c74242;
+  color: var(--color-red);
   transition: all ease 0.3s;
 }
 

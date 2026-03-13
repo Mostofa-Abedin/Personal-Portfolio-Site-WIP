@@ -86,19 +86,6 @@
   object-fit: cover;
 }
 
-.logoPlaceholder {
-  width: 140px;
-  height: 80px;
-  flex-shrink: 0;
-  background-color: var(--color-dark-blue);
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-}
 
 .certList {
   display: flex;
