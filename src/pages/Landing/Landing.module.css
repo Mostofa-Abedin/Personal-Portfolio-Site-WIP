@@ -1,53 +1,168 @@
 .container {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100dvh;
   background-image: url('/background.png');
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
-.container p {
-  color: white;
-  font-size: clamp(1.8rem, 4vw, 4rem);
-  line-height: 1.6;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 15, 35, 0.72) 0%,
+    rgba(0, 35, 70, 0.55) 50%,
+    rgba(0, 10, 25, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
   text-align: center;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
 }
 
-.fname {
-  color: var(--color-red);
+.greeting {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.lname {
-  color: var(--color-orange);
+.name {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.prtButton {
+.fname { color: var(--color-red); }
+.lname { color: var(--color-orange); }
+
+.subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.65rem);
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  min-height: 2.2em;
+  font-family: var(--font-heading);
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.primaryBtn {
   display: inline-block;
-  border-radius: 24px;
-  color: white;
-  background-color: var(--color-grey);
-  padding: 16px 36px;
-  text-align: center;
+  padding: 14px 38px;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange));
+  color: #fff;
   text-decoration: none;
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  margin: 12px 2px 0;
-  cursor: pointer;
-  transition: background-color 0.4s;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 20px rgba(255, 99, 97, 0.4);
 }
 
-.prtButton:hover {
-  background-color: var(--color-orange);
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  opacity: 0.92;
+  box-shadow: 0 8px 28px rgba(255, 99, 97, 0.5);
 }
 
-@media screen and (max-width: 768px) {
-  .container p {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+.secondaryBtn {
+  display: inline-block;
+  padding: 13px 38px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.secondaryBtn:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Bouncing scroll arrow */
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.scrollArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  animation: bounce 2s ease-in-out infinite;
+  transition: border-color 0.25s;
+}
+
+.scrollArrow:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.scrollArrow span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg) translateY(-2px);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+@media (max-width: 768px) {
+  .name { letter-spacing: -0.01em; }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
   }
 
-  .prtButton {
-    font-size: 1.1rem;
-    padding: 14px 28px;
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    text-align: center;
   }
 }

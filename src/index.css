@@ -5,7 +5,10 @@
   --color-dark-blue: #003F5C;
   --color-grey: #2E424B;
   --color-hover-blue: #0056b3;
-  --font-body: "Roboto", sans-serif;
+
+  /* Typography */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
 
   /* Heading colour — dark blue on light, orange on dark */
   --text-heading: var(--color-dark-blue);
@@ -13,12 +16,13 @@
   /* Navbar / Footer theming */
   --bg-navbar: linear-gradient(20deg, var(--color-red), var(--color-orange));
   --bg-navbar-mobile: linear-gradient(160deg, var(--color-red), var(--color-orange));
+  --bg-navbar-scrolled: linear-gradient(20deg, rgba(255,99,97,0.82), rgba(255,166,0,0.82));
   --bg-footer: var(--color-dark-blue);
   --nav-text: var(--color-dark-blue);
 
   /* Light mode semantic tokens */
   --bg-page: #ffffff;
-  --bg-card: #f9f9f9;
+  --bg-card: #f8f8f8;
   --bg-input: #fafafa;
   --text-primary: #111111;
   --text-secondary: #333333;
@@ -27,26 +31,29 @@
   --border-color: #cccccc;
   --border-light: #e0e0e0;
   --shadow: rgba(0, 0, 0, 0.15);
-  --shadow-card: rgba(0, 0, 0, 0.10);
+  --shadow-card: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.18);
 }
 
 /* Dark mode overrides */
 html.dark {
-  --bg-page: #0f172a;
-  --bg-card: #1e293b;
-  --bg-input: #1e293b;
+  --bg-page: #0a0f1e;
+  --bg-card: #111827;
+  --bg-input: #1a2235;
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
-  --text-subtle: #94a3b8;
-  --border-color: #334155;
-  --border-light: #334155;
-  --shadow: rgba(0, 0, 0, 0.4);
-  --shadow-card: rgba(0, 0, 0, 0.3);
+  --text-subtle: #64748b;
+  --border-color: #1e293b;
+  --border-light: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow-card: rgba(0, 0, 0, 0.35);
+  --shadow-hover: rgba(0, 0, 0, 0.55);
   --text-heading: var(--color-orange);
   --bg-navbar: linear-gradient(20deg, #0f2035, #1a3a5c);
   --bg-navbar-mobile: linear-gradient(160deg, #0f2035, #1a3a5c);
-  --bg-footer: #0f2035;
+  --bg-navbar-scrolled: linear-gradient(20deg, rgba(15,32,53,0.88), rgba(26,58,92,0.88));
+  --bg-footer: #060d1a;
   --nav-text: #f5efe0;
 }
 
@@ -62,9 +69,21 @@ body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sticky footer layout — every page fills the viewport */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom cursor — hides native pointer on hover-capable devices */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
+/* Sticky footer layout */
 #root {
   display: flex;
   flex-direction: column;

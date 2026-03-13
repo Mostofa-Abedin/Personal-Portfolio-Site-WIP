@@ -1,42 +1,57 @@
 .container {
-  flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
-  padding: 4rem 2rem;
-  text-align: center;
+  min-height: 100dvh;
   background-color: var(--bg-page);
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+  max-width: 480px;
 }
 
 .code {
-  font-size: clamp(5rem, 15vw, 10rem);
-  font-weight: 800;
-  background: linear-gradient(90deg, var(--color-red), var(--color-orange));
+  font-family: var(--font-heading);
+  font-size: clamp(7rem, 18vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
 }
 
 .message {
-  font-size: 1.4rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
 .homeBtn {
-  padding: 12px 32px;
-  background: linear-gradient(90deg, var(--color-red), var(--color-orange));
-  color: white;
+  display: inline-block;
+  padding: 13px 34px;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange));
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: opacity 0.3s, transform 0.2s;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(255, 99, 97, 0.3);
+  transition: transform 0.25s, opacity 0.25s;
 }
 
 .homeBtn:hover {
-  opacity: 0.88;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  opacity: 0.9;
 }

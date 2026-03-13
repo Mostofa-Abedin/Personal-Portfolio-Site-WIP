@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
@@ -8,10 +8,17 @@ import styles from './Navbar.module.css'
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { dark, toggle } = useDarkMode()
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={styles.nav}>
         <NavLink to="/" className={styles.logo} aria-label="Mostofa Abedin - Home">
           <img
@@ -25,11 +32,21 @@ function Navbar() {
           <NavLink to="/about" className={styles.topBtn} onClick={() => setMenuOpen(false)}>About</NavLink>
           <NavLink to="/experience" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Experience</NavLink>
           <NavLink to="/education" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Education</NavLink>
+          <NavLink to="/projects" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Projects</NavLink>
           <NavLink to="/blogs" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Blogs</NavLink>
-          <NavLink to="/contact" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Contact Me</NavLink>
+          <NavLink to="/contact" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Contact</NavLink>
         </div>
 
         <div className={styles.rightControls}>
+          <button
+            className={styles.cmdBtn}
+            onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
+            aria-label="Open command palette"
+            title="Open command palette (Ctrl+K)"
+          >
+            <kbd>⌘K</kbd>
+          </button>
+
           <button
             className={styles.darkToggle}
             onClick={toggle}
