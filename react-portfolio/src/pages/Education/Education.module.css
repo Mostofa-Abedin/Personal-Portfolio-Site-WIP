@@ -9,7 +9,7 @@
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--color-dark-blue);
+  color: var(--text-heading);
 }
 
 .edContent {

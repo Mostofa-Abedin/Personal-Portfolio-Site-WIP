@@ -9,7 +9,7 @@
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--color-dark-blue);
+  color: var(--text-heading);
 }
 
 .expContent {
@@ -55,7 +55,7 @@
 }
 
 .skillGroup h4 {
-  color: var(--color-dark-blue);
+  color: var(--text-heading);
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
@@ -139,7 +139,7 @@
 }
 
 .resume a:hover {
-  color: var(--color-dark-blue);
+  color: var(--text-heading);
   transform: scale(1.05);
 }
 
