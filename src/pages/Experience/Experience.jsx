@@ -68,7 +68,13 @@ function Experience() {
                 >
                   <div className={styles.cardMeta}>
                     <h3 className={styles.jobTitle}>{job.title}</h3>
-                    <span className={styles.company}>{job.company}</span>
+                    {job.url ? (
+                      <a href={job.url} target="_blank" rel="noreferrer" className={styles.companyLink}>
+                        {job.company}
+                      </a>
+                    ) : (
+                      <span className={styles.company}>{job.company}</span>
+                    )}
                     <span className={styles.duration}>{job.duration}</span>
                   </div>
                   <FontAwesomeIcon

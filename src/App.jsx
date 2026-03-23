@@ -11,7 +11,8 @@ import About from './pages/About/About'
 import Experience from './pages/Experience/Experience'
 import Education from './pages/Education/Education'
 import Projects from './pages/Projects/Projects'
-import Blogs from './pages/Blogs/Blogs'
+// BLOGS HIDDEN — uncomment the import + route below to re-enable
+// import Blogs from './pages/Blogs/Blogs'
 import Contact from './pages/Contact/Contact'
 import NotFound from './pages/NotFound/NotFound'
 
@@ -27,7 +28,7 @@ function AnimatedRoutes() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/blogs" element={<Blogs />} />
+          {/* BLOGS HIDDEN — uncomment to re-enable: <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

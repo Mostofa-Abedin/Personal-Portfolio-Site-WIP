@@ -3,6 +3,7 @@ export const jobs = [
     id: 'magnetlab',
     title: 'Projects & Operations Lead',
     company: 'MagnetLab – Sydney, NSW',
+    url: 'https://magnetlab.com.au',
     duration: 'Jan 2024 – Present',
     description: 'AI automation and web development studio providing custom websites, CRM implementations, and automation consulting for small businesses.',
     responsibilities: [
@@ -19,6 +20,7 @@ export const jobs = [
     id: 'partsdb',
     title: 'Automotive Subject Matter Expert – Operations Lead',
     company: 'PARts DB Australia – Sydney, NSW',
+    url: 'https://partsdb.com.au/',
     duration: 'May 2023 – Nov 2023',
     description: 'Automotive parts data SaaS and catalog platform providing fitment and product data to retailers, marketplaces, and suppliers.',
     responsibilities: [
@@ -33,6 +35,7 @@ export const jobs = [
     id: 'lenovo',
     title: 'Configuration Services Engineer / Project Coordinator – DaaS',
     company: 'Lenovo (Configuration Services) – Sydney, NSW',
+    url: 'https://www.lenovo.com/au/en/services/deployment-services/',
     duration: 'Mar 2021 – May 2023',
     description: "Lenovo's configuration and deployment division supporting DaaS programs with standardized builds, logistics, and field-ready devices.",
     responsibilities: [
@@ -45,6 +48,7 @@ export const jobs = [
     id: 'tismor',
     title: 'Continuous Improvement Engineer',
     company: 'Tismor Health & Wellness – Sydney, NSW',
+    url: 'https://tismor.com.au/',
     duration: 'Sep 2020 – Mar 2021',
     description: 'GMP-certified contract manufacturer of health and wellness products, providing formulation, production, and high-speed packaging for brands.',
     responsibilities: [
@@ -57,12 +61,13 @@ export const jobs = [
     id: 'pgh',
     title: 'Mechanical Engineer (Intern)',
     company: 'PGH Bricks & Pavers – Sydney, NSW',
+    url: 'https://www.pghbricks.com.au/',
     duration: 'Apr 2020 – Sep 2020',
     description: 'Australian manufacturer of clay bricks and pavers supplying residential and commercial construction projects.',
     responsibilities: [
       'Assisted engineers with weekly kiln and material-handling inspections, logging findings and scheduling follow-ups to minimize downtime.',
       'Digitized and updated mechanical drawings to AS1100 standards, giving maintenance crews accurate references for repairs and redesigns.',
-      'Created a searchable spare-parts catalogue, relabeled shelves, and reorganized the storeroom by most-used items — earning a "Gold Pillar" KPI rating for inventory management.',
+      'Created a searchable spare-parts catalogue, relabeled shelves, and reorganized the storeroom by most-used items, earning a "Gold Pillar" KPI rating for inventory management.',
       'Took part in daily toolbox meetings, updated WHS documents, and completed Job Safety & Environmental Analyses (JSEA) before maintenance tasks.',
     ],
   },

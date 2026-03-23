@@ -23,12 +23,31 @@
   line-height: 1.7;
 }
 
+.categorySection {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.categoryHeading {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.75rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: stretch;
+}
+
+.grid > * {
+  height: 100%;
 }
 
 .card {
