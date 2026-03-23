@@ -17,11 +17,11 @@ const fadeUp = (delay = 0) => ({
 })
 
 const certs = [
-  { title: 'PMI Agile Certified Practitioner (PMI-ACP)®', body: 'Project Management Institute · Issued Nov 2025 · Expires Nov 2028' },
-  { title: 'Certified Associate in Project Management (CAPM)®', body: 'Project Management Institute · Issued Oct 2025 · Expires Oct 2028' },
-  { title: 'Professional Year in Engineering (GradIEAust)', body: 'Engineers Australia · 2021' },
-  { title: 'Startup Fundamentals', body: 'Incubate Program, University of Sydney · 2021' },
-  { title: 'Google Cloud Generative AI Leader', body: 'In progress' },
+  { title: 'PMI Agile Certified Practitioner (PMI-ACP)®', body: 'Project Management Institute · Issued Nov 2025 · Expires Nov 2028', href: 'https://www.pmi.org/certifications/agile-acp' },
+  { title: 'Certified Associate in Project Management (CAPM)®', body: 'Project Management Institute · Issued Oct 2025 · Expires Oct 2028', href: 'https://www.pmi.org/certifications/certified-associate-capm' },
+  { title: 'Professional Year in Engineering (GradIEAust)', body: 'Engineers Australia · 2021', href: 'https://eea.org.au/professional-year-program' },
+  { title: 'Startup Fundamentals', body: 'Incubate Program, University of Sydney · 2021', href: 'https://incubate.org.au/proto/' },
+  { title: 'AWS Certified Cloud Practitioner (CCP)', body: 'In progress', href: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
 ]
 
 function Education() {
@@ -50,6 +50,19 @@ function Education() {
                 <h3>Coder Academy</h3>
                 <p className={styles.degree}>Diploma of Information Technology (Web Development)</p>
                 <p className={styles.years}>Apr 2024 – Feb 2025</p>
+                <ul className={styles.diplomaList}>
+                  <li>Built full-stack web apps using the MERN stack (MongoDB, Express, React, Node.js)</li>
+                  <li>Structured backend codebases with MVC architecture and RESTful API design</li>
+                  <li>Designed and queried relational databases with PostgreSQL alongside NoSQL with MongoDB</li>
+                  <li>Frontend development with React, JavaScript (ES6+), HTML5, and CSS3</li>
+                  <li>Version control with Git and GitHub, including branching and pull request workflows</li>
+                  <li>Agile development practices and collaborative team projects</li>
+                </ul>
+                <div className={styles.diplomaTags}>
+                  {['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'REST APIs', 'MVC', 'HTML5', 'CSS3', 'Git'].map(t => (
+                    <span key={t} className={styles.diplomaTag}>{t}</span>
+                  ))}
+                </div>
               </div>
             </div>
             <div className={styles.qualCard}>
@@ -62,7 +75,7 @@ function Education() {
                 <p className={styles.years}>Class of 2020</p>
                 <p className={styles.thesis}>
                   <strong>Final Year Thesis (Distinction)</strong><br />
-                  Numerical and experimental study of externally loaded bolted joints — comparing
+                  Numerical and experimental study of externally loaded bolted joints, comparing
                   physical models, analytical formulae, and FEA in ANSYS and SolidWorks.
                 </p>
               </div>
@@ -76,7 +89,10 @@ function Education() {
           <div className={styles.certGrid}>
             {certs.map(c => (
               <div key={c.title} className={styles.certCard}>
-                <h4>{c.title}</h4>
+                {c.href
+                  ? <h4><a href={c.href} target="_blank" rel="noreferrer" className={styles.certLink}>{c.title}</a></h4>
+                  : <h4>{c.title}</h4>
+                }
                 <p>{c.body}</p>
               </div>
             ))}
@@ -90,7 +106,7 @@ function Education() {
             <div className={styles.projectCard}>
               <img src={fsaeImg} alt="FSAE race car" className={styles.projectImg} />
               <div className={styles.projectText}>
-                <h4>Formula SAE Team</h4>
+                <h4><a href="https://www.sydneymotorsport.com.au" target="_blank" rel="noreferrer" className={styles.certLink}>Formula SAE Team</a></h4>
                 <ul>
                   <li>Design and testing of FSAE specification race car.</li>
                   <li>Managed funding and awareness-raising events.</li>

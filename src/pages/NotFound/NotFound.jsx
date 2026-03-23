@@ -20,7 +20,7 @@ function NotFound() {
           <div className={styles.code}>404</div>
           <h1 className={styles.title}>Lost in the void.</h1>
           <p className={styles.message}>
-            The page you&apos;re looking for doesn&apos;t exist — or it moved somewhere better.
+            The page you&apos;re looking for doesn&apos;t exist, or it moved somewhere better.
           </p>
           <Link to="/" className={styles.homeBtn}>← Back to Home</Link>
         </motion.div>
