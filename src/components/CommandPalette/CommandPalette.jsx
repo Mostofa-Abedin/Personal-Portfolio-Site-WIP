@@ -23,7 +23,8 @@ const navCommands = [
   { id: 'experience', label: 'Experience', desc: 'Work history & skills',   icon: faBriefcase,      path: '/experience' },
   { id: 'education',  label: 'Education',  desc: 'Academic background',     icon: faGraduationCap,  path: '/education'  },
   { id: 'projects',   label: 'Projects',   desc: 'Selected work',           icon: faCode,           path: '/projects'   },
-  { id: 'blogs',      label: 'Blogs',      desc: 'Articles & writing',      icon: faNewspaper,      path: '/blogs'      },
+  // BLOGS HIDDEN — uncomment to re-enable in command palette
+  // { id: 'blogs',      label: 'Blogs',      desc: 'Articles & writing',      icon: faNewspaper,      path: '/blogs'      },
   { id: 'contact',    label: 'Contact',    desc: 'Get in touch',            icon: faEnvelope,       path: '/contact'    },
 ]
 

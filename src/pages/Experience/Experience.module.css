@@ -103,6 +103,19 @@
   font-weight: 500;
 }
 
+.companyLink {
+  font-size: 0.92rem;
+  color: var(--color-orange);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.companyLink:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
 .duration {
   font-size: 0.82rem;
   color: var(--text-muted);

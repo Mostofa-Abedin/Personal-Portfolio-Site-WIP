@@ -41,6 +41,28 @@
   transform: translateY(-2px);
 }
 
+.scheduleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 9px 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #f5efe0;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  letter-spacing: 0.02em;
+}
+
+.scheduleBtn:hover {
+  border-color: var(--color-orange);
+  background: rgba(255, 166, 0, 0.1);
+  transform: translateY(-2px);
+}
+
 /* Bottom row */
 .footerContent {
   display: flex;

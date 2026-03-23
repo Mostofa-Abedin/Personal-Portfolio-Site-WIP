@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPaperPlane, faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPaperPlane, faCircleCheck, faCircleXmark, faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
@@ -47,7 +47,7 @@ function Contact() {
 
   const socials = [
     { icon: faEnvelope, label: 'Email', href: 'mailto:shekh.mostofa.abedin@gmail.com', text: 'shekh.mostofa.abedin@gmail.com' },
-    { icon: faLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mostofaabedin', text: 'in/mostofaabedin' },
+    { icon: faLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mostofaabedin/', text: 'in/mostofaabedin' },
     { icon: faGithub, label: 'GitHub', href: 'https://github.com/Mostofa-Abedin', text: 'github.com/Mostofa-Abedin' },
     { icon: faFacebook, label: 'Facebook', href: 'https://www.facebook.com/mostafa.abedin', text: 'Shekh Mostofa Abedin' },
     { icon: faTwitter, label: 'X / Twitter', href: 'https://x.com/Abedin32505783', text: '@Abedin32505783' },
@@ -72,9 +72,17 @@ function Contact() {
           >
             <h1 className={styles.heading}>Let&apos;s Talk</h1>
             <p className={styles.subtext}>
-              Found my portfolio interesting? Feel free to reach out —
-              this could be the beginning of something great!
+              Found my portfolio interesting? Feel free to reach out.
+              This could be the beginning of something great!
             </p>
+            <a
+              href="https://outlook.office.com/bookwithme/user/7630af3ae24f4880a7d942afb2ae121c@magnetlab.com.au/meetingtype/tNLIdi053EebThC-_S08bg2?anonymous&ismsaljsauthenabled&ep=mlink"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.bookingBtn}
+            >
+              <FontAwesomeIcon icon={faCalendarCheck} /> Schedule a Call
+            </a>
             <div className={styles.divider} />
             <h3 className={styles.findMe}>Find me on:</h3>
             <div className={styles.contactIcons}>
@@ -97,6 +105,7 @@ function Contact() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <h2 className={styles.formTitle}>Send a Message</h2>
+            <p className={styles.replyNote}>I typically reply within 24 hours.</p>
 
             {status === 'success' && (
               <div className={styles.successMsg}>

@@ -21,6 +21,38 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] } },
 }
 
+const CATEGORIES = ['Software', 'Operations & Automation']
+
+function ProjectCard({ project }) {
+  return (
+    <TiltCard className={styles.card}>
+      {project.featured && <span className={styles.featuredBadge}>Featured</span>}
+      <h2 className={styles.cardTitle}>{project.title}</h2>
+      <p className={styles.cardDesc}>{project.description}</p>
+      <div className={styles.tags}>
+        {project.tags.map(tag => (
+          <span key={tag} className={styles.tag}>{tag}</span>
+        ))}
+      </div>
+      <div className={styles.links}>
+        {project.github && (
+          <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
+            <FontAwesomeIcon icon={faGithub} /> GitHub
+          </a>
+        )}
+        {project.live && (
+          <a href={project.live} target="_blank" rel="noreferrer" className={styles.linkBtn}>
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Live
+          </a>
+        )}
+        {!project.github && !project.live && (
+          <span className={styles.privateNote}>Client / Internal Project</span>
+        )}
+      </div>
+    </TiltCard>
+  )
+}
+
 function Projects() {
   return (
     <PageTransition>
@@ -41,42 +73,29 @@ function Projects() {
           </RevealText>
         </div>
 
-        <motion.div
-          className={styles.grid}
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {projects.map(project => (
-            <motion.div key={project.id} variants={item}>
-              <TiltCard className={styles.card}>
-                {project.featured && <span className={styles.featuredBadge}>Featured</span>}
-                <h2 className={styles.cardTitle}>{project.title}</h2>
-                <p className={styles.cardDesc}>{project.description}</p>
-                <div className={styles.tags}>
-                  {project.tags.map(tag => (
-                    <span key={tag} className={styles.tag}>{tag}</span>
-                  ))}
-                </div>
-                <div className={styles.links}>
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-                      <FontAwesomeIcon icon={faGithub} /> GitHub
-                    </a>
-                  )}
-                  {project.live && (
-                    <a href={project.live} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Live
-                    </a>
-                  )}
-                  {!project.github && !project.live && (
-                    <span className={styles.privateNote}>Client / Internal Project</span>
-                  )}
-                </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
+        {CATEGORIES.map((category, catIndex) => {
+          const categoryProjects = projects.filter(p => p.category === category)
+          if (!categoryProjects.length) return null
+          return (
+            <div key={category} className={styles.categorySection}>
+              <RevealText delay={0.05 + catIndex * 0.1}>
+                <h2 className={styles.categoryHeading}>{category}</h2>
+              </RevealText>
+              <motion.div
+                className={styles.grid}
+                variants={container}
+                initial="hidden"
+                animate="show"
+              >
+                {categoryProjects.map(project => (
+                  <motion.div key={project.id} variants={item}>
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          )
+        })}
       </main>
       <Footer />
     </PageTransition>

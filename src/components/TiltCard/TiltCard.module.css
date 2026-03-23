@@ -5,6 +5,7 @@
   overflow: hidden;
   /* border-radius comes from the consumer's className */
   will-change: transform;
+  height: 100%;
 }
 
 .glare {

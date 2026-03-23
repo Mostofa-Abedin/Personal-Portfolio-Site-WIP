@@ -33,7 +33,8 @@ function Navbar() {
           <NavLink to="/experience" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Experience</NavLink>
           <NavLink to="/education" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Education</NavLink>
           <NavLink to="/projects" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Projects</NavLink>
-          <NavLink to="/blogs" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Blogs</NavLink>
+          {/* BLOGS HIDDEN — uncomment to re-enable */}
+          {/* <NavLink to="/blogs" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Blogs</NavLink> */}
           <NavLink to="/contact" className={styles.topBtn} onClick={() => setMenuOpen(false)}>Contact</NavLink>
         </div>
 

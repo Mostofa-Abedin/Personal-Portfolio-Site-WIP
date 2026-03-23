@@ -4,18 +4,10 @@ import { motion } from 'framer-motion'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import PageTransition from '../../components/PageTransition/PageTransition'
-import AnimatedCounter from '../../components/AnimatedCounter/AnimatedCounter'
 import MagneticButton from '../../components/MagneticButton/MagneticButton'
-import Marquee from '../../components/Marquee/Marquee'
 import profileImg from '../../assets/My_image.jpg'
 import styles from './About.module.css'
 
-const stats = [
-  { value: 5, suffix: '+', label: 'Years Experience' },
-  { value: 2, suffix: '', label: 'PMI Certifications' },
-  { value: 5, suffix: '', label: 'Companies' },
-  { value: 20, suffix: '+', label: 'Automations Built' },
-]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -31,7 +23,7 @@ function About() {
     <PageTransition>
       <Helmet>
         <title>About | Mostofa Abedin</title>
-        <meta name="description" content="Learn about Mostofa Abedin — PMI-ACP certified professional with a background in engineering, software development, operations, and automation." />
+        <meta name="description" content="Learn about Mostofa Abedin, a PMI-ACP certified professional with a background in engineering, software development, operations, and automation." />
       </Helmet>
       <Navbar />
       <main className={styles.section}>
@@ -89,26 +81,6 @@ function About() {
           </motion.div>
         </div>
 
-        {/* Skills marquee */}
-        <Marquee />
-
-        {/* Stats strip */}
-        <motion.div
-          className={styles.statsRow}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5 }}
-        >
-          {stats.map(s => (
-            <div key={s.label} className={styles.stat}>
-              <span className={styles.statValue}>
-                <AnimatedCounter to={s.value} suffix={s.suffix} />
-              </span>
-              <span className={styles.statLabel}>{s.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </main>
       <Footer />
     </PageTransition>

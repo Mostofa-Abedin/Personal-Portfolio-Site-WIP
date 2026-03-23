@@ -27,6 +27,28 @@
   margin-bottom: 1.75rem;
 }
 
+.bookingBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 11px 24px;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange));
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 16px rgba(255, 99, 97, 0.25);
+  transition: opacity 0.22s, transform 0.22s;
+}
+
+.bookingBtn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
 .divider {
   width: 48px;
   height: 3px;
@@ -91,6 +113,13 @@
   font-size: 1.7rem;
   color: var(--text-heading);
   margin-bottom: 1.5rem;
+}
+
+.replyNote {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .successMsg,
